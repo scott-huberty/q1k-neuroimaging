@@ -3,13 +3,40 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Q1K_neuroimaging's documentation!
-============================================
+Quebec 1000 Neuroimaging
+========================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :hidden:
 
+   Tasks <tasks/index.rst>
+
+.. grid::
+   
+   .. grid-item-card::
+      :link: https://example.com
+
+      |:brain:| Tutorials
+      ^^^^^^^^^^^^^^^^^^^
+      Analyze Q1K data
+
+   .. grid-item-card::
+
+      |:wrench:| Lab Specifications
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      Setup your lab for
+      EEG-eyetracking acquisition
+
+   .. grid-item-card::
+      :link: eeg-et-tasks
+      :link-type: ref
+
+      |:orange_book:| Task Specifications
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      Read more about EEG-eyetracking
+      experimental tasks
 
 
 Indices and tables

@@ -6,23 +6,30 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Q1K_neuroimaging'
-copyright = '2023, Scott Huberty, Diksha Srishyla, Gabriel Blanco Gomez'
-author = 'Scott Huberty, Diksha Srishyla, Gabriel Blanco Gomez'
-release = '0.1'
+project = "Q1K_neuroimaging"
+copyright = "2023, Scott Huberty, Diksha Srishyla, Gabriel Blanco Gomez"
+author = "Scott Huberty, Diksha Srishyla, Gabriel Blanco Gomez"
+release = "0.1"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+# Sphinx design adds grid directive and other responsive components
+# Sphinxemoji So we can use emoji's in docs.
+# contrib extensions youtube for embedding youtube videos
+extensions = [
+    "sphinx_design",
+    "sphinxemoji.sphinxemoji",
+    # contrib extensions
+    "sphinxcontrib.youtube",
+]
 
-templates_path = ['_templates']
+templates_path = ["_templates"]
 exclude_patterns = []
-
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'shibuya'
-html_static_path = ['_static']
+html_theme = "shibuya"
+# html_static_path = ["_static"]
