@@ -33,3 +33,6 @@ exclude_patterns = []
 
 html_theme = "shibuya"
 # html_static_path = ["_static"]
+
+# Enable numref for automatically numbering Figures, i.e "Fig 1"
+numfig = True
