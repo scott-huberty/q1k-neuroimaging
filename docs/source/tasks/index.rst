@@ -12,10 +12,14 @@ battery.
    :hidden:
 
    gap_overlap
+   natural_social_preference
 
 - :doc:`gap_overlap`
+- :doc:`natural_social_preference`
 
-
+The table below denotes the order that the EEG-eyetracking tasks are run in the Q1k,
+and the estimated duration of each task (not including setup, eyetracking calibration,
+and EEG impedance time).
 
 .. table:: Task Order and Durations
     :widths: auto
