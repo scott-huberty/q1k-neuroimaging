@@ -1,0 +1,5 @@
+'sphinx >= 6.1',
+'sphinxcontrib-youtube',
+'sphinx-design',
+'sphinxemoji',
+'shibuya'
