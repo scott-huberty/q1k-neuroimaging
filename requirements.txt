@@ -1,5 +1,0 @@
-sphinx>=5.0
-sphinxcontrib-youtube
-sphinx-design
-sphinxemoji
-shibuya

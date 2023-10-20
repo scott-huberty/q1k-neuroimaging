@@ -18,7 +18,7 @@ peripheral stimulus (Cloud), either ``803px`` eccentricity to the left or right.
 the participant gazes to the peripheral stimulus (or if the trial times-out), A reward
 animation (star) is presented at the same place as the peripheral stimulus. Sounds are
 played when the central and peripheral stimuli are presented. The color of the
-background screen is randomly selected before the session begins, and reamins the same
+background screen is randomly selected before the session begins, and remains the same
 for all trials.
 
 .. vimeo:: 874134383
