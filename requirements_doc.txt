@@ -1,5 +1,5 @@
-'sphinx >= 6.1',
-'sphinxcontrib-youtube',
-'sphinx-design',
-'sphinxemoji',
-'shibuya'
+sphinx>=6.1,
+sphinxcontrib-youtube,
+sphinx-design,
+sphinxemoji,
+shibuya
