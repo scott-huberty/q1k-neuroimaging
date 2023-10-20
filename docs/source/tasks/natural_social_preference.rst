@@ -1,3 +1,5 @@
+.. _NS:
+
 Naturalistic Social Preference (NSP)
 ====================================
 
