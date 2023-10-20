@@ -3,13 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. _Q1K_website: https://rtsa-tacc.com/discovery/quebec-1000/
-
 Quebec 1000 Experimental Protocol
 =================================
 
 This page contains the documentation and tutorials for the EEG, eye-tracking, and
-neuroimaging protocols within the `Quebec 1000  project <Q1K_website>`_. Specifically,
+neuroimaging protocols within the
+`Quebec 1000  project <https://rtsa-tacc.com/discovery/quebec-1000/>`_. Specifically,
 on this site you can find information on how to set up your lab for EEG-eyetracking
 acquisition, how to run the Q1K EEG-Eyetracking experimental tasks, and how to access
 and analyze the publicly available Q1K EEG-Eyetracking & Neuroimaging data.
