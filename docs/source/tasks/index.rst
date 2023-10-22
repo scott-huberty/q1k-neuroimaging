@@ -11,11 +11,18 @@ battery.
    :maxdepth: 1
    :hidden:
 
+   anti_saccade
+   visual_search
    gap_overlap
    natural_social_preference
+   face_social_preference
 
+
+- :doc:`anti_saccade`
+- :doc:`visual_search`
 - :doc:`gap_overlap`
 - :doc:`natural_social_preference`
+- :doc:`face_social_preference`
 
 The table below denotes the order that the EEG-eyetracking tasks are run in the Q1k,
 and the estimated duration of each task (not including setup, eyetracking calibration,
