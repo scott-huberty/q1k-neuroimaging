@@ -1,0 +1,138 @@
+[build-system]
+requires = ['setuptools >= 61.0.0']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'Q1K-neuroimaging'
+version = "0.1.dev0"
+description = 'Documentation and analytical scripts for the Q1K neuroimaging core.'
+readme = 'README.md'
+license = {file = 'LICENSE'}
+requires-python = '>=3.9'
+maintainers = [
+    {name = 'Scott Huberty', email = 'seh33@uw.edu'},
+]
+keywords = [
+    'eeg',
+    'eyetracking',
+    'MRI',
+    'neuroscience',
+]
+classifiers = [
+    'Operating System :: Microsoft :: Windows',
+    'Operating System :: Unix',
+    'Operating System :: MacOS',
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Natural Language :: English',
+    'License :: OSI Approved :: BSD License',
+    'Intended Audience :: Science/Research',
+    'Intended Audience :: Developers',
+    'Topic :: Software Development',
+    'Topic :: Scientific/Engineering',
+]
+dependencies = [
+    'sphinx >= 6.1',
+    'sphinxcontrib-youtube',
+    'sphinx-design',
+    'sphinxemoji',
+    'shibuya',
+]
+
+[project.optional-dependencies]
+doc = [
+    'numpydoc',
+    'sphinxcontrib-bibtex',
+    'sphinx-copybutton',
+    'sphinx-gallery',
+    'sphinx-issues',
+]
+
+test = [
+    'black',
+    'codespell',
+    'isort',
+    'pre-commit',
+    'pydocstyle[toml]',    
+    'pytest',
+    'pytest-cov',
+    'ruff',
+    "tomli; python_version<'3.11'",
+]
+all = [
+    'q1k-neuroimaging[doc]',
+    'q1k-neuroimaging[test]',
+]
+full = [
+    'q1k-neuroimaging[all]',
+]
+
+[project.urls]
+source = 'https://github.com/scott-huberty/q1k-neuroimaging'
+tracker = 'https://github.com/scott-huberty/q1k-neuroimaging/issues'
+# documentation = ''
+
+[tool.setuptools]
+include-package-data = false
+
+# [tool.setuptools.packages.find]
+# include = ['meeg_eyekit*']
+# exclude = ['meeg_eyekit*tests']
+
+# [tool.setuptools.package-data]
+# "meeg_eyekit" = ["assets/*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+(
+      __pycache__
+    | \.github
+    | setup.py
+    | docs/
+    | examples/
+)
+'''
+
+[tool.isort]
+profile = 'black'
+multi_line_output = 3
+line_length = 88
+py_version = 39
+extend_skip_glob = [
+    'setup.py',
+    'docs/*',
+    'examples/*',
+]
+
+# [tool.pydocstyle]
+# convention = 'numpy'
+# ignore-decorators = '(copy_doc|property|.*setter|.*getter|pyqtSlot|Slot)'
+# match = '^(?!setup|__init__|test_).*\.py'
+# match-dir = '^meeg_eyekit.*'
+# add_ignore = 'D100,D104,D107'
+
+[tool.pytest.ini_options]
+minversion = '6.0'
+addopts = '--durations 20 --junit-xml=junit-results.xml --verbose'
+filterwarnings = []
+
+[tool.coverage.run]
+branch = true
+cover_pylib = false
+omit = [
+    '**/__init__.py',
+    '**/q1k_neuroimaging/_version.py',
+    '**/tests/**',
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    'pragma: no cover',
+    'if __name__ == .__main__.:',
+]
+precision = 2

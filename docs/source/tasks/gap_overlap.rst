@@ -1,14 +1,18 @@
+.. _GO:
+
 Gap Overlap (GO)
 ================
 
 .. _GO-image:
 
 .. figure:: https://raw.githubusercontent.com/scott-huberty/Q1K-doc-assets/main/_images/task_images/Q1K-Gap-Overlap.png
-    :alt: Gap Overlap
+    :alt: Image of the Gap Overlap task, showing the stimuli and interest areas
     :align: center
 
     Gap-Overlap stimuli and interest area placement and sizing.
 
+Overview
+--------
 
 The Gap Overlap task measures reaction times from a central stimulus to a peripheral
 stimulus. A central stimulus is first presented (spinning clock), followed by a
@@ -16,11 +20,12 @@ peripheral stimulus (Cloud), either ``803px`` eccentricity to the left or right.
 the participant gazes to the peripheral stimulus (or if the trial times-out), A reward
 animation (star) is presented at the same place as the peripheral stimulus. Sounds are
 played when the central and peripheral stimuli are presented. The color of the
-background screen is randomly selected before the session begins, and reamins the same
+background screen is randomly selected before the session begins, and remains the same
 for all trials.
 
 .. vimeo:: 874134383
     :align: center
+    :width: 75%
 
 Conditions
 ----------
@@ -78,18 +83,31 @@ Eyelink Host PC (``"Gap"``, ``"Overlap"``, and ``"Baseline"``).
 
 Animations
 ----------
-Central Stimulus
+Central Stimulus (CS)
     At the onset of a trial the Central Stimulus is ``0*0px`` and over ``300ms``
     increases in size to ``350*350px`` (looming). Following this the Central
     Stimulus pulses, increasing/decreasing between ``234*234px`` to ``350*350px`` at
     3Hz (throbbing). Once gaze is detected, the Central Stimulus sized ``234*234px``
     spins clockwise at 1.5Hz.
-Peripheral Stimulus
+Peripheral Stimulus (PS)
     Following the onset of the Peripheral Stimulus, gaze to it triggers a rotation
     animation. The Peripheral stimulus sized at ``234*234px`` rotates clockwise at
     1.5Hz. Finally,
-Reward Stimulus
+Reward Stimulus (RS)
     the reward animation starts at ``234*234px``, reduces to ``0px`` as it rotates
     clockwise at 1.5Hz over 1 second (the reward duration).
 
 
+Event Messaging
+---------------
+
+Throughout the recording sequence of the trial, messages are sent to the Eyelink Host
+PC to mark key onsets, and are written to the Eyelink EDF file. The trial begins
+with a message ``"CS_ONSET"`` when the CS begins to loom. When gaze is
+detected to the CS a message ``"GAZE_TO_CS"`` is written, directly followed by
+``"CS_SPIN"`` when the CS beings spinning for the ``600ms`` (+ jitter value). This is
+followed by ``"ONSET_200MS"`` to signify the ``200ms`` period when the CS either
+remained or left the screen, and then ``"ONSET_PS"`` when the PS is displayed. If gaze
+is oriented to the wrong side, a message ``"GAZE_TO_WRONG_SIDE"`` is written, if gaze is
+to the PS, then ``"GAZE_TO_PS"`` is written, followed by ``"REWARD_ONSET"`` when the
+reward begins. The trial ends with a ``"DISPLAY_BLANK"`` message.
