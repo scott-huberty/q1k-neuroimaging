@@ -9,6 +9,7 @@ Q1K EEG-eyetracking Task Reference
    :hidden:
 
    gap_overlap
+   ssvep
    natural_social_preference
 
 The table below denotes the order that the EEG-eyetracking tasks are run in the Q1k,
@@ -23,7 +24,7 @@ and EEG impedance time). You can click on a task name to learn more about that t
     =========  ========
     :ref:`GO`  5min
     AS         5min
-    SSVEP      8min
+    :ref:`VP`  8min
     VS         5min
     SSAEP      8min
     GO         5min
