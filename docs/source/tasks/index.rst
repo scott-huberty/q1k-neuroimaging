@@ -9,6 +9,7 @@ Q1K EEG-eyetracking Task Reference
    :hidden:
 
    rest
+   mmn
    gap_overlap
    ssvep
    ssaep
@@ -32,7 +33,7 @@ and EEG impedance time). You can click on a task name to learn more about that t
     :ref:`AP`  5min
     GO         5min
     PLR        7min
-    MMN        7min
+    :ref:`MN`  5min
     :ref:`NS`  5min
     FSP        5min
     =========  ========

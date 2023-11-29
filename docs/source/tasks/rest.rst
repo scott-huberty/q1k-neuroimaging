@@ -1,6 +1,6 @@
 .. _RS:
 
-Reseting-State
+Resting-State
 ==============
 
 .. vimeo:: 889688662
