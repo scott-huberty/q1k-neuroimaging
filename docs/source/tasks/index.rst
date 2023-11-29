@@ -8,6 +8,7 @@ Q1K EEG-eyetracking Task Reference
    :maxdepth: 1
    :hidden:
 
+   rest
    gap_overlap
    ssvep
    ssaep
@@ -23,6 +24,7 @@ and EEG impedance time). You can click on a task name to learn more about that t
     =========  ========
     Task       Duration
     =========  ========
+    :ref:`RS`  5min
     :ref:`GO`  5min
     AS         5min
     :ref:`VP`  8min
