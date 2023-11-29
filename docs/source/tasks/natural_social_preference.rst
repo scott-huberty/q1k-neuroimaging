@@ -52,6 +52,12 @@ Stimuli Interest Areas
 
 Event Messaging
 ---------------
+
+Experiment Builder will send experiment event codes to both the Eyelink and EGI
+acquisition systems, and the event code patterns differ slightly:
+
+Eyelink Acquisition
+^^^^^^^^^^^^^^^^^^^
 Each trial begins with the onset of the calibration dot, which writes the message
 ``"CALIB_ANIMATION_ONSET"``, and when the invisible boundary trigger fires the message
 ``"GAZE_TO_CALIB"`` is written. When the video plays the message ``"SYNC FRAME No. 1"``
@@ -60,3 +66,22 @@ theory this message could help with the production of dynamic interest areas
 (if required) as these could be matched to frame numbers. When the video is complete,
 the message ``"DISPLAY_BLANK"`` is written, corresponding with the display of the blank
 screen ending the trial.
+
+
+EGI acquisition
+^^^^^^^^^^^^^^^
+EGI Netstation does not support the same event messaging as the Eyelink Host PC, as
+event codes are generally restricted to 4 characters. The table below shows the
+corresponding event codes for the EGI Netstation acquisition, and the DIN event
+triggered by the photo-diode on the screen for each event.
+
+===========================  ========  =========  =========
+      Eyelink Event                EGI Event        DIN
+---------------------------  -------------------  ---------
+    Condition                Natural   Scrambled   
+===========================  ========  =========  =========    
+``"CALIB_ANIMATION_ONSET"``  dfns      dfss       ``N.A.``                
+``"GAZE_TO_CALIB"``          gfns      gfss        ``N.A.``
+``"SYNC FRAME No. 1"``       dvns      dvss         DIN2      
+``"DISPLAY_BLANK"``          dbns      dbss       ``N.A.``
+===========================  ========  =========  =========
