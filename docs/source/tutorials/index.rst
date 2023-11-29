@@ -7,4 +7,7 @@ This section provides tutorials on use the Q1K EEG-eyetracking analysis tools wi
 pubicaly available data, or with your own data collected with the Q1K EEG-eyetracking
 tasks.
 
-.. todo:: Build & add tutorials for running analyses with the Q1K analysis tools.
+- `Analyze pupil size and evoked potentials from the Pupillary Light Reflex Task <https://mne.tools/dev/auto_tutorials/preprocessing/90_eyetracking_data.html>`_
+- `Create a heatmap of gaze position during the Naturalistic Scenes Task <https://mne.tools/dev/auto_examples/visualization/eyetracking_plot_heatmap.html#tut-eyetrack-heatmap>`_
+
+.. todo:: As we develop more tutorials, we will add them here!
