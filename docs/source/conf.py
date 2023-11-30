@@ -15,14 +15,19 @@ release = "0.1"
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 # Sphinx design adds grid directive and other responsive components
+# sphinx.ext.todo so that we can use todo directives, like notes directives.
 # Sphinxemoji So we can use emoji's in docs.
 # contrib extensions youtube for embedding youtube videos
 extensions = [
+    "sphinx.ext.todo",
     "sphinx_design",
     "sphinxemoji.sphinxemoji",
     # contrib extensions
     "sphinxcontrib.youtube",
 ]
+
+# Allows us to use the ..todo:: directive
+todo_include_todos = True
 
 templates_path = ["_templates"]
 exclude_patterns = []
@@ -32,7 +37,8 @@ exclude_patterns = []
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "shibuya"
-# html_static_path = ["_static"]
+html_static_path = ["_static"]
+html_logo = "_static/Q1K-Logo.svg"
 
 # Enable numref for automatically numbering Figures, i.e "Fig 1"
 numfig = True

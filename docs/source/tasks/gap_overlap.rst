@@ -1,3 +1,5 @@
+.. _GO:
+
 Gap Overlap (GO)
 ================
 
@@ -99,6 +101,12 @@ Reward Stimulus (RS)
 Event Messaging
 ---------------
 
+Because the task is designed to be run on both the Eyelink and EGI acquisition systems,
+Experiment Builder will send experiment messages to both systems. The messages sent to
+the Eyelink Host PC and to the EGI Netstation acquisition will differ slightly.
+
+Eyelink Acquisition
+^^^^^^^^^^^^^^^^^^^
 Throughout the recording sequence of the trial, messages are sent to the Eyelink Host
 PC to mark key onsets, and are written to the Eyelink EDF file. The trial begins
 with a message ``"CS_ONSET"`` when the CS begins to loom. When gaze is
@@ -109,3 +117,25 @@ remained or left the screen, and then ``"ONSET_PS"`` when the PS is displayed. I
 is oriented to the wrong side, a message ``"GAZE_TO_WRONG_SIDE"`` is written, if gaze is
 to the PS, then ``"GAZE_TO_PS"`` is written, followed by ``"REWARD_ONSET"`` when the
 reward begins. The trial ends with a ``"DISPLAY_BLANK"`` message.
+
+EGI acquisition
+^^^^^^^^^^^^^^^
+EGI Netstation does not support the same event messaging as the Eyelink Host PC, as
+event codes are generally restricted to 4 characters. The table below shows the
+corresponding event codes for the EGI Netstation acquisition, and the DIN event
+triggered by the photo-diode on the screen for each event.
+
+========================  ========  ========  ========  ========
+Eyelink Event                       EGI Event             DIN
+------------------------  ----------------------------  --------
+    Condition             Overlap    Gap      Baseline   
+========================  ========  ========  ========  ========    
+``"CS_ONSET"``              dfoc      dfbc      dfgc      DIN2 
+``"GAZE_TO_CS"``            gfoc      gfbc      gfgc    ``N.A.``
+``"CS_SPIN"``               dsoc      dsbc      Dsgc      DIN7
+``"ONSET_PS"``              dtoc      dtbc      dtgc      DIN3
+``"GAZE_TO_PS"``            gcoc      gcbc      gcgc    ``N.A.``
+``"GAZE_TO_WRONG_SIDE"``    geoc      gebc      gegc    ``N.A.``
+``"REWARD_ONSET"``          droc      drbc      drgc      DIN7
+``"DISPLAY_BLANK"``         dboc      dbbc      dbgc    ``N.A.``
+========================  ========  ========  ========  ========

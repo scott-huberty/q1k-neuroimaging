@@ -134,3 +134,9 @@ my_project_ll_config.yaml
 
 # VSCode ignore
 .vscode
+
+
+# images
+.DS_Store
+docs/.DS_Store
+docs/source/.DS_Store
