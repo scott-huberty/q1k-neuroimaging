@@ -1,3 +1,5 @@
+.. _VS:
+
 Visual Search (VS)
 ==================
 
@@ -23,7 +25,7 @@ and the red apple slice is ``45*270px`` (0.8*4.6o), as shown in Figure 3. When t
 gazes to the target (red whole apple), the apple rotates and an applause is played.
 
 
-.. vimeo:: 18111247
+.. vimeo:: 876494648
     :align: center
     :width: 75%
 
@@ -32,9 +34,9 @@ Conditions
 
 Mismatch type 
 
-Colour mistmatch
+Colour mismatch
     Whole red apple amongst whole blue apples
-Slice mistmatch
+Slice mismatch
     Whole red apple amongst red apple slice
 Conjunction mismatch
     Whole red apple amongst whole blue apples and red apple slices
@@ -75,7 +77,7 @@ the top left or right corners over ``750ms``. It then remains in the center of t
 screen with a ``220px`` diameter interest area, until gaze is within the interest 
 area region for ``50ms`` or ``2000ms`` elapses (the trial is immediately recycled,
 and the attention getter is shown). All trials that show a search array present a
-reward animation, which is the target apple rotating clockwise 180 degreees for 
+reward animation, which is the target apple rotating clockwise 180 degrees for 
 ``500ms`` then anti-clockwise 180 degrees (returning upright) for ``750ms``.
 
 Event Messaging
@@ -88,3 +90,11 @@ the fixation image is shown, the message ``DISPLAY_FIXATION`` is written and aft
 the target IA, ``GAZE_TO_TARGET`` is written (or ``TIMEOUT`` if not after 4000ms). When
 the reward animation begins ``DISPLAY_REWARD`` is written, and the trial ends with 
 ``DISPLAY_BLANK`` when the final blank screen is displayed. 
+
+EGI acquisition
+^^^^^^^^^^^^^^^
+EGI Netstation does not support the same event messaging as the Eyelink Host PC, as
+event codes are generally restricted to 4 characters. The table below shows the
+corresponding event codes for the EGI Netstation acquisition, and the DIN event
+triggered by the photo-diode on the screen for each event.
+

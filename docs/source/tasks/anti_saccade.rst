@@ -1,3 +1,5 @@
+.. _AS:
+
 Anti-Saccade (AS)
 =================
 
@@ -22,7 +24,7 @@ The target red dot is ``234*234px``, and after the participants have looked at i
 by a random selection from the four reward animations, which are also ``234*234px``. The goal 
 of the task is to look at the target as quickly as possible.
 
-.. vimeo:: 8741343
+.. vimeo:: 877645510
     :align: center
     :width: 75%
 
@@ -41,7 +43,7 @@ Anti-Saccade
 
 
 .. note::
-    All conditions are defined by the participants own gaze beahviour and the crtical period of
+    All conditions are defined by the participants own gaze beahviour and the critical period of
     behaviour is from the onset of the distractor until the onset of the targe image (except for
     the "Anti-saccade condition")
 
@@ -80,7 +82,7 @@ onset. The fourth variable is ``AS_TARGET_SAC_RT`` is a reaction time measure fo
 difference between the first sample to the target IA and the onset of the distractor dot,
 this RT variable is also updated if the gaze triggers after the target onset (``+100ms``).
 With this information some conditional triggers determine whether the trial is either an 
-anti-saccade, pro-saccade or corrective saccade. Belwo is a summary of trial labels: 
+anti-saccade, pro-saccade or corrective saccade. Below is a summary of trial labels: 
 
 
 1. Pro-saccade: Contains a true DS variable and a false PS variable.
@@ -93,25 +95,82 @@ after presentation, are deemed invalid.
 
 Animations
 ----------
-A fixation star throbs, changing in size between 50% and 100% at 1.5Hz. The reward 
-animations shrink to 75% whilst rotating 45 clockwise for 500ms then return to 
-100% centered over ``500ms``. They then shrink 75% and rotate anticlockwise for ``500ms``
-returning to 100% and centered. The duration of the reward animation is ``2500ms``.
+Fixation (start)
+    A fixation star throbs, changing in size between 50% and 100% at 1.5Hz.
+Reward Animation (start)
+    The reward  animations shrink to 75% whilst rotating 45 clockwise for ``500ms`` then return to 
+    100% centered over ``500ms``. They then shrink 75% and rotate anticlockwise for ``500ms``
+    returning to 100% and centered. The duration of the reward animation is ``2500ms``.
 
 Event Messaging
 ---------------
-The trial begins with the message ``DISPLAY_FIXATION``, followed by either ``GAZE_TO_FIX``
-or ``TRIAL_TIMEOUT``(if not gaze within ``2500ms``). When the distractor is shown. 
-``ONSET_DISTRACTOR`` is written, if gaze looks directly at the distractor ``GAZE_TO_DISTRACTOR``
-is written, or ``PREDICT_TARGET_GAZE`` if gaze goes directly to the target side. If
-no gaze is to the target side, after ``200ms``, the message ``DISTRACTOR_OFFSET``
-is written. If gaze is located on the distractor side within ``100ms`` of the offset,
-``GAZE_TO_DISTRACTOR`` is written.  If the IB trigger for the target side fires, 
-``PREDICT_TARGET_GAZE`` is written. If no gaze is detected to the target side within
-``1000ms``, ``TARGET_ONSET`` is written when the red target image is displayed. If 
-gaze is detected to the target IA within ``100ms`` of the target onset, 
-``PREDICT_TARGET_GAZE`` is written, if gaze is detected after 100ms, then 
-``GAZE_TO_TARGET`` is written. If no gaze is detected to the target side, ``TRIAL_TIMEOUT``
-is written. When the reward animation is shown, the message ``REWARD_ONSET`` is written
-followed by ``TRIAL_END``, when a background image only message is displayed after
-``2500ms``. The final message writes the result of the classifier (e.g, PRO_SACCADE, etc.).
+
+Because the task is designed to be run on both the Eyelink and EGI acquisition systems,
+Experiment Builder will send experiment messages to both systems. The messages sent to
+the Eyelink Host PC and to the EGI Netstation acquisition will differ slightly.
+
+Eyelink
+^^^^^^^
+
+
+Fixation Onset
+    The trial begins with the message ``DISPLAY_FIXATION`` (onset of the star), followed by
+    either ``GAZE_TO_FIX`` or ``TRIAL_TIMEOUT``(if not gaze within ``2500ms``).
+Distractor Onset (black dot)
+    When the distractor is shown (black dot), ``ONSET_DISTRACTOR`` is written. If
+    the participant does not gaze to the target side after ``200ms`` of the distractor onset, the
+    distractor will disappear and the message ``DISTRACTOR_OFFSET``is written. If the participant gazes
+    directly to the distractor after its onset, or within ``200ms`` of its offset, ``GAZE_TO_DISTRACTOR``
+    is written. 
+Target Onset (red dot)
+    If the participant gazes directly to the target side *before* it onsets, *or* within ``100ms`` of its onset,
+    then ``PREDICT_TARGET_GAZE`` is written. If the participant gazes to the target side
+    after ``100ms`` of the target onset, then ``GAZE_TO_TARGET`` is written. If the
+    participant does not gaze to the target side within ``1000ms``of the target onset,
+    ``TARGET_ONSET`` is written when the target is displayed. If no gaze is detected to
+    the target side, ``TRIAL_TIMEOUT`` is written.
+Reward Animation (star)    
+    When the reward animation is shown, the message ``"REWARD_ONSET"`` is written
+    followed by ``TRIAL_END``.
+Trial Classification
+    The final message of the trial writes the result of the
+    classifier (e.g, ``"PRO_SACCADE"``, ``"CORRECTIVE_SACCADE"``, ``"ANTI_SACCADE"`` etc.).
+
+
+EGI acquisition
+^^^^^^^^^^^^^^^
+EGI Netstation does not support the same event messaging as the Eyelink Host PC, as
+event codes are generally restricted to 4 characters. The table below shows the
+corresponding event codes for the EGI Netstation acquisition, and the DIN event
+triggered by the photo-diode on the screen for each event.
+
+=========================  ========  ========  ========
+Eyelink Event                 EGI Event         DIN
+-------------------------  ------------------  --------
+    Condition              Left      Right
+=========================  ========  ========  ========    
+``"DISPLAY_FIXATION"``      dfxl      dfxr      DIN3 
+``"GAZE_TO_FIX"``           gfxl      gfxr     ``N.A.``
+``"ONSET_DISTRACTOR"``      ddtl      ddtr      DIN2
+``"GAZE_TO_DISTRACTOR"``    gddl      gddr     ``N.A.``
+``"PREDICT_TARGET_GAZE"``   gdtl      gdtr     ``N.A.``
+``"DISTRACTOR_OFFSET"``     dbgl      dbgr     ``N.A.``
+``"TARGET_ONSET"``          dtgl      dtgr      DIN2
+``"GAZE_TO_TARGET"``        gttl      gttr     ``N.A.``
+``"REWARD_ONSET"``          drwl      drwl      DIN3
+``"TRIAL_TIMEOUT"``         N.A.      N.A.      N.A.
+``"TRIAL_END"``             N.A.      N.A.      N.A.
+=========================  ========  ========  ========
+
+
+
+
+
+.. note::
+    In addition to the event codes above, the following codes are also sent to the EGI
+    Netstation acquisition system, but they don't contain a corresponding Eyelink event:
+    If the distractor offsets, and the participant gaze is on the distractor side ``gbdl``
+    or ``gbdr`` are written, corresponding to whether the distractor was on the left
+    or right side of the screen. Alternatively if the participant looked to the *target*
+    side *after* the distractor disappears, then ``gbtl`` or ``gbtr`` are written, again
+    corresponding to the side of the screen that the *target* is on.

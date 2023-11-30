@@ -1,3 +1,5 @@
+.. _FS:
+
 Face Social Preference (FSP)
 ============================
 
@@ -20,7 +22,7 @@ The images and the resulting video are sized to ``533*533px``and are displayed c
 the left or right half of the screen (an eccentricity from center of ``480px``). 
 
 
-.. vimeo:: 8741343
+.. vimeo:: 877645530
     :align: center
     :width: 75%
 
@@ -30,7 +32,7 @@ Conditions
 Away vs Towards (AT)
     Videos of caregivers facing away vs towards
 Invariant vs Variant (IV)
-    Videos of caregivers saying “hello”/”good job” (varaint)
+    Videos of caregivers saying “hello”/”good job” (variant)
     vs smiles (invariant).
 Face vs Toy
     Shown videos of a caregiver's faces vs videos of
@@ -40,9 +42,9 @@ Face vs Toy
 Interest Areas
 --------------
 
-There are just three interest areas regions for the experiment. The ``250px`` ellipse 
+There are  three interest areas regions for the experiment. The ``250px`` ellipse 
 surrounding the ball and the left and right rectangular ``600*600px`` regions around 
-each image/video.  The name of each interest area in changes based on behavior, e.g. 
+each image/video.  The name of each interest area changes based on behavior, e.g. 
 if the right video is a ‘variant’ stimuli and the right variant side is triggered to 
 play, the IA for that side is labelled “Variant_Video_IA” and the non-video side is 
 labeled ``Invariant_Still_IA``. This labelling is to make clear which IA side and 
