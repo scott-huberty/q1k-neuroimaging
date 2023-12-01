@@ -70,13 +70,13 @@ event codes are generally restricted to 4 characters. The table below shows the
 corresponding event codes for the EGI Netstation acquisition, and the DIN event
 triggered by the photo-diode on the screen for each event.
 
-========================  ========  ========  =========
-Event Description             EGI Event         DIN
-------------------------  ------------------  ---------
-    Condition             Standard   Deviant   
-========================  ========  ========  =========
-Onset of tone             ``mmns``  ``mmnt``  ``DIN7``
-========================  ========  ========  =========
+========================  ========  ========  ====  =======
+Event Description             EGI Event           DIN
+------------------------  ------------------  -------------
+    Condition             Standard   Deviant  EGI   Eyelink
+========================  ========  ========  ====  =======
+Onset of tone             ``mmns``  ``mmnt``  DIN4   ``4``
+========================  ========  ========  ====  =======
 
 .. note::
     DIN events represent the auditory rise onset of each tone,
