@@ -149,4 +149,20 @@ By default, the Eyelink will not write Stimtracker events to the EDF file. To en
 this, you must add extra lines of code to the ``FINAL.ini`` file on eyelink file
 browser partition of the Host PC. This file is located at ``/ELCL/EXE/FINAL.ini``.
 Please see this `post <https://www.sr-research.com/support/thread-316.html?highlight=bidirectional>`_
-and follow the instructions to add accept DATA Register events to the EDF file.
+and follow the instructions to add accept DATA Register events to the EDF file, which should specify
+to add the following block of code to the end of the aforementioned ``FINAL.ini`` file::
+
+
+    write_ioport 0xA 0x20
+    input_data_ports  = 8
+    input_data_masks = 0xFF
+    create_button 1 8 0x01 0 
+    create_button 2 8 0x02 0
+    create_button 3 8 0x04 0 
+    create_button 4 8 0x08 0
+    create_button 5 8 0x10 0
+    create_button 6 8 0x20 0
+    create_button 7 8 0x40 0
+    create_button 8 8 0x80 0
+
+
