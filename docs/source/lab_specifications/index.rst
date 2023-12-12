@@ -176,6 +176,8 @@ to add the following block of code to the end of the aforementioned ``FINAL.ini`
     create_button 7 8 0x40 0
     create_button 8 8 0x80 0
 
+You may also refer to `this post <https://www.sr-research.com/support/thread-81.html>`_ for more information
+on using TTL events with Eyelink systems.
 
 DIN Event codes for Stimtracker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

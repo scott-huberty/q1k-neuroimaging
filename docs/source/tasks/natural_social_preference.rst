@@ -75,13 +75,13 @@ event codes are generally restricted to 4 characters. The table below shows the
 corresponding event codes for the EGI Netstation acquisition, and the DIN event
 triggered by the photo-diode on the screen for each event.
 
-===========================  ========  =========  =========
-      Eyelink Event                EGI Event        DIN
----------------------------  -------------------  ---------
+===========================  ========  =========  =========  ===========
+      Eyelink Event                EGI Event        DIN EGI  DIN EYELINK
+---------------------------  -------------------  ---------  -----------
     Condition                Natural   Scrambled   
-===========================  ========  =========  =========    
+===========================  ========  =========  =========  ===========    
 ``"CALIB_ANIMATION_ONSET"``  dfns      dfss       ``N.A.``                
 ``"GAZE_TO_CALIB"``          gfns      gfss        ``N.A.``
-``"SYNC FRAME No. 1"``       dvns      dvss         DIN2      
+``"SYNC FRAME No. 1"``       dvns      dvss         DIN2         2    
 ``"DISPLAY_BLANK"``          dbns      dbss       ``N.A.``
-===========================  ========  =========  =========
+===========================  ========  =========  =========  ===========

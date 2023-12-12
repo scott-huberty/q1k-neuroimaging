@@ -144,23 +144,23 @@ event codes are generally restricted to 4 characters. The table below shows the
 corresponding event codes for the EGI Netstation acquisition, and the DIN event
 triggered by the photo-diode on the screen for each event.
 
-=========================  ========  ========  ========
-Eyelink Event                 EGI Event         DIN
--------------------------  ------------------  --------
+=========================  ========  ========  ========  ==========
+Eyelink Event                 EGI Event         DIN EGI  DIN EYELNK
+-------------------------  ------------------  --------  ----------
     Condition              Left      Right
-=========================  ========  ========  ========    
-``"DISPLAY_FIXATION"``      dfxl      dfxr      DIN3 
+=========================  ========  ========  ========  ==========    
+``"DISPLAY_FIXATION"``      dfxl      dfxr      DIN3         4
 ``"GAZE_TO_FIX"``           gfxl      gfxr     ``N.A.``
-``"ONSET_DISTRACTOR"``      ddtl      ddtr      DIN2
+``"ONSET_DISTRACTOR"``      ddtl      ddtr      DIN2         2
 ``"GAZE_TO_DISTRACTOR"``    gddl      gddr     ``N.A.``
 ``"PREDICT_TARGET_GAZE"``   gdtl      gdtr     ``N.A.``
 ``"DISTRACTOR_OFFSET"``     dbgl      dbgr     ``N.A.``
-``"TARGET_ONSET"``          dtgl      dtgr      DIN2
+``"TARGET_ONSET"``          dtgl      dtgr      DIN2         2
 ``"GAZE_TO_TARGET"``        gttl      gttr     ``N.A.``
-``"REWARD_ONSET"``          drwl      drwl      DIN3
+``"REWARD_ONSET"``          drwl      drwl      DIN3         4
 ``"TRIAL_TIMEOUT"``         N.A.      N.A.      N.A.
 ``"TRIAL_END"``             N.A.      N.A.      N.A.
-=========================  ========  ========  ========
+=========================  ========  ========  ========  ==========
 
 
 

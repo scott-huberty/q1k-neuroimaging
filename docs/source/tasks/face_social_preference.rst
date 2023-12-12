@@ -90,3 +90,60 @@ not gaze triggers a stimulus within ``5000ms`` ``TIMEOUT_NO_GAZE`` is written an
 the trial is recycled. The trial ends with the message ``DISPLAY_BLANK`` when the
 final blank screen is displayed. 
 
++-------------------------+-------------------------------------+----------+----------+-------------+------------+---------+-------------+
+| Event Marker            |      Away-Towards vs Towards-Away   |     Face vs Toy     |   Invariant vs Variant   | EGI DIN | EYELINK DIN |
+|                         +-------------------------------------+---------------------+--------------------------+---------+-------------+
+|                         |   Looked-Away   |   Looked-Towards  |   Face   |   Toy    |  Invariant  |  Variant   |                       |
++=========================+=================+===================+==========+==========+=============+============+=========+=============+
+| BALL_ANIMATION_ONSET    |                                     dafp                                             | DIN3    |       4     |
++-------------------------+-----------------+-------------------+----------+----------+-------------+------------+---------+-------------+
+| GAZE_TRIGGER_TO_BALL    |                                     gafp                                                                     |
++-------------------------+-----------------+-------------------+----------+----------+-------------+------------+---------+-------------+
+| TIMEOUT_FALSE_START     |                                                                                                              |
++-------------------------+-----------------+-------------------+----------+----------+-------------+------------+---------+-------------+
+| STILL_IMAGE_ONSET       |                                            dsfp                                      |  DIN2   |      2      |
++-------------------------+-----------------+-------------------+----------+----------+-------------+------------+---------+-------------+
+|                         |                                            glfp                                                              |
+| GAZE_TRIGGER_LEFT       +-----------------+-------------------+----------+----------+-------------+------------+---------+-------------+
+|                         |  vlta           |    vlat           |  vlft    |   vltf   |    vliv     |    vlvi    | DIN3    |       4     |
++-------------------------+-----------------+-------------------+----------+----------+-------------+------------+---------+-------------+
+|                         |                                            grfp                                                              |
+| GAZE_TRIGGER_RIGHT      +-----------------+-------------------+----------+----------+-------------+------------+---------+-------------+
+|                         |  vrta           |    vrat           |  vrft    |   vrtf   |    vriv     |    vrvi    | DIN3    |             |
++-------------------------+-----------------+-------------------+----------+----------+-------------+------------+---------+-------------+
+| FIXED_SIDE              |  vlta / vrta    |  vlat / vrat      | vlft/vrft| vltf/vrtf|  vliv/vriv  |  vlvi/vrvi | DIN3    |             |                                                                                                                                                                         
++-------------------------+-----------------+-------------------+----------+----------+-------------+------------+---------+-------------+
+| TIMEOUT_NO_GAZE         |                                                                                                              |
++-------------------------+-----------------+-------------------+----------+----------+-------------+------------+---------+-------------+
+| DISPLAY_BLANK           |                                            blfp, brfp                                                        |
++-------------------------+-----------------+-------------------+----------+----------+-------------+------------+---------+-------------+
+
+
+
+In addition to the event codes above, the following codes are also sent to the EGI
+Netstation acquisition system, but generally are not needed for offline analysis:
+
+========================  ======================================
+Description               EGI Event
+------------------------  --------------------------------------
+Begin trial               ``bgn1``  
+begin task                ``VBeg``
+Netstation misc event     ``TSYN``
+display start menu        ``dstr``
+display break menu        ``dbrk`` 
+display end screen        ``dend``
+display attention screen  ``attn``
+display blank screen      ``dbsp``, ``dbfp``
+Gaze at left video        ``glfp``
+Gaze at right video       ``grfp``
+Display Blank Left        ``blfp``
+Display Blank Right       ``brfp``
+========================  ======================================
+
+
+Understanding the EGI event codes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In the EGI event codes, the first letter indicates the type of event, and the
+remaining letters indicate the event. For example, ``vlta`` indicates display
+video left, looking towards to away. vlat stands for display video left, looking
+away to towards the participant.

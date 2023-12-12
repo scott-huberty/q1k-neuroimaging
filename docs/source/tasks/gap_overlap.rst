@@ -125,17 +125,17 @@ event codes are generally restricted to 4 characters. The table below shows the
 corresponding event codes for the EGI Netstation acquisition, and the DIN event
 triggered by the photo-diode on the screen for each event.
 
-========================  ========  ========  ========  ========
-Eyelink Event                       EGI Event             DIN
-------------------------  ----------------------------  --------
+========================  ========  ========  ========  ==========  ===========
+Eyelink Event                       EGI Event             DIN EGI   DIN EYELINK
+------------------------  ----------------------------  ----------  -----------
     Condition             Overlap    Gap      Baseline   
-========================  ========  ========  ========  ========    
-``"CS_ONSET"``              dfoc      dfbc      dfgc      DIN2 
-``"GAZE_TO_CS"``            gfoc      gfbc      gfgc    ``N.A.``
-``"CS_SPIN"``               dsoc      dsbc      Dsgc      DIN7
-``"ONSET_PS"``              dtoc      dtbc      dtgc      DIN3
-``"GAZE_TO_PS"``            gcoc      gcbc      gcgc    ``N.A.``
-``"GAZE_TO_WRONG_SIDE"``    geoc      gebc      gegc    ``N.A.``
-``"REWARD_ONSET"``          droc      drbc      drgc      DIN7
-``"DISPLAY_BLANK"``         dboc      dbbc      dbgc    ``N.A.``
-========================  ========  ========  ========  ========
+========================  ========  ========  ========  ==========  ===========
+``"CS_ONSET"``              dfoc      dfbc      dfgc      DIN2           2
+``"GAZE_TO_CS"``            gfoc      gfbc      gfgc     
+``"CS_SPIN"``               dsoc      dsbc      Dsgc      DIN3           4 
+``"ONSET_PS"``              dtoc      dtbc      dtgc      DIN2           2
+``"GAZE_TO_PS"``            gcoc      gcbc      gcgc     
+``"GAZE_TO_WRONG_SIDE"``    geoc      gebc      gegc     
+``"REWARD_ONSET"``          droc      drbc      drgc      DIN3           4
+``"DISPLAY_BLANK"``         dboc      dbbc      dbgc     
+========================  ========  ========  ========  ==========  ===========
