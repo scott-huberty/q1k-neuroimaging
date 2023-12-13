@@ -32,10 +32,10 @@ and EEG impedance time). You can click on a task name to learn more about that t
     :ref:`GO`  5min
     :ref:`AS`  5min
     :ref:`VP`  8min
-    :ref:`VS`   5min
+    :ref:`VS`  5min
     :ref:`AP`  5min
-    PLR        7min
     :ref:`MN`  5min
     :ref:`NS`  5min
+    :ref:`PR`  7min
     :ref:`FS`  5min
     =========  ========
